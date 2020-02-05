@@ -1,6 +1,8 @@
-@extends('layouts.app')
+@extends('template.layout')
 
-@section('content')
+@section('titre', 'Connection')
+
+@section('contenu')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
