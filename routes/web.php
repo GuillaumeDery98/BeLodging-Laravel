@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', 'IndexController@all');
+Route::post('/', 'IndexController@filtered');
 
 Route::get('laravel', function () {
     return view('welcome');
