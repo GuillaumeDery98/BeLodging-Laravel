@@ -76,7 +76,7 @@
         </div>
 
         <div class="row pt-3 pb-3 mt-5 mb-5">
-            <div class="offset-3 col-6 contenu">
+            <div class="offset-md-3 col-md-6 col-sm-12 contenu">
                 @yield('contenu')
             </div>
 

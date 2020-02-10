@@ -175,5 +175,10 @@ return [
         'time'                  => 'heure',
         'available'             => 'disponible',
         'size'                  => 'taille',
+        'postal'                => 'code postal',
+        'prixmin'               => 'prix minimum',
+        'prixmax'               => 'prix maximum',
+        'duree'                 => 'durée',
+        'type'                  => 'type de logement',
     ],
 ];

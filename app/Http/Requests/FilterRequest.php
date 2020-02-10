@@ -24,7 +24,11 @@ class FilterRequest extends FormRequest
     public function rules()
     {
         return [
-            'nom' => 'bail | required | integer'
+            'postal' => 'required | integer',
+            'prixmin' => 'required | integer',
+            'prixmax' => 'required | integer',
+            'duree' => 'required | integer',
+            'type' => 'required | integer',
         ];
     }
 }

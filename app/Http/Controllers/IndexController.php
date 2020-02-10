@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Symfony\Component\Console\Input\Input;
 
 use App\Http\Requests\FilterRequest;
 
