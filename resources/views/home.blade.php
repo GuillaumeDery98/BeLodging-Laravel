@@ -3,9 +3,10 @@
 @section('titre', 'Dashboard')
 
 @section('contenu')
+
 <div class="row mt-1">
     <div class="col-2">
-        <a href="/updateuser"><button type="button" class="btn btn-outline-info waves-effect">Mes infos</button></a>
+        <a href="/myinfos"><button type="button" class="btn btn-outline-info waves-effect">Mes infos</button></a>
     </div>
     <div class="col-2 offset-8">
         <a href="/createAnnonce"><button type="button" class="btn btn-outline-info waves-effect">Créer
@@ -13,6 +14,7 @@
     </div>
 
 </div>
+<h1 class="pt-3">Mes annonces</h1>
 <div class="row mt-3">
     <table class="table table-striped">
         <thead>
@@ -45,4 +47,6 @@
         </tbody>
     </table>
 </div>
+
+
 @endsection
