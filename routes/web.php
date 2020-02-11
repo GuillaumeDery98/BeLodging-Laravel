@@ -29,3 +29,4 @@ Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::get('/dashboard', 'HomeController@index');
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/create, AnnoncesController@create');

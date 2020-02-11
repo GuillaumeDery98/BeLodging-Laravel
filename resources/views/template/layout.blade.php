@@ -27,6 +27,8 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.12.0/js/mdb.min.js">
     </script>
 
+    @yield('addhead')
+
 
 
     <title>@yield('titre')</title>
