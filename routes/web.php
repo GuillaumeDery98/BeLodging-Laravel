@@ -10,18 +10,22 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Auth::routes(['verify' => true]);
+
+//Index
+
 Route::get('/', 'IndexController@all');
 Route::post('/', 'IndexController@filtered');
 
+
+//Auth
+
+Auth::routes(['verify' => true]);
 Route::get('laravel', function () {
     return view('welcome');
 })->middleware('verified');
-
-Route::get('/dashboard', 'HomeController@index');
-
-
-
 Route::get('/logout', 'Auth\LoginController@logout');
 
+//User account management
+
+Route::get('/dashboard', 'HomeController@index');
 Route::get('/home', 'HomeController@index')->name('home');
