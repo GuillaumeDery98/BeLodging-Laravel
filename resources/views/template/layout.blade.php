@@ -48,7 +48,7 @@
                             <a class="nav-link" href="/">Acceuil <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/lol">Link</a>
+                            <a class="nav-link" href="/home">Mon dashboard</a>
                         </li>
                     </ul>
                     <div class="nav-item dropleft">

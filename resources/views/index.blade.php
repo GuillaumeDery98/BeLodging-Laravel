@@ -13,8 +13,8 @@
             <div class="form-row">
                 <div class="col-md-12">
                     <label for="postal">Code Postal</label>
-                    <input type="text" class="form-control @error('postal') is-invalid @enderror" id="postal"
-                        name="postal" value=" {{ old('postal') }} ">
+                    <input type="number" class="form-control @error('postal') is-invalid @enderror" id="postal"
+                        name="postal" value="{{ old('postal') }}">
                     @error('postal')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -24,7 +24,7 @@
                 <div class="col-md-6 col-sm-12 mt-2">
                     <label for="prixmin">Prix Minimum</label>
                     <input type="number" class="form-control @error('prixmin') is-invalid @enderror" id="prixmin"
-                        name="prixmin" placeholder="0" value=" {{ old('prixmin') }} ">
+                        name="prixmin" placeholder="0" value="{{ old('prixmin') }}">
                     @error('prixmin')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -32,7 +32,7 @@
                 <div class="col-md-6 col-sm-12 mt-2">
                     <label for="prixmax">Prix Maximum</label>
                     <input type="number" class="form-control @error('prixmax') is-invalid @enderror" id="prixmax"
-                        name="prixmax" placeholder="0" value=" {{ old('postal') }} ">
+                        name="prixmax" placeholder="0" value="{{ old('prixmax') }}">
                     @error('prixmax')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror

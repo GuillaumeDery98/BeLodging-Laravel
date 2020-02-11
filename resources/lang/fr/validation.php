@@ -132,6 +132,10 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'postal' => [
+            'integer' => "Ce n'est pas un code postal.",
+            'size' => "La valeur du code postal doit être composée de 4 caractères."
+        ]
     ],
 
     /*

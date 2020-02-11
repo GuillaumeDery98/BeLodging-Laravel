@@ -24,7 +24,7 @@ class FilterRequest extends FormRequest
     public function rules()
     {
         return [
-            'postal' => 'required | integer',
+            'postal' => 'required | integer | digits:4',
             'prixmin' => 'required | integer',
             'prixmax' => 'required | integer',
             'duree' => 'required | integer',
