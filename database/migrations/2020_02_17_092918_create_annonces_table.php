@@ -15,7 +15,7 @@ class CreateAnnoncesTable extends Migration
     {
         Schema::create('annonces', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('tilte');
+            $table->string('title');
             $table->integer('city');
             $table->integer('type');
             $table->integer('duration');

@@ -4,6 +4,8 @@
 
 @section('contenu')
 
+{{ $message ?? '' }}
+
 <div class="row mt-1">
     <div class="col-2">
         <a href="/myinfos"><button type="button" class="btn btn-outline-info waves-effect">Mes infos</button></a>

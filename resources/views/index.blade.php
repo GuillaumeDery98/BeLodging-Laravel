@@ -3,7 +3,7 @@
 @section('titre', 'Acceuil')
 
 @section('contenu')
-<div class="filter">
+<div class="formCenter">
     <h2>Filtres</h2>
 
 

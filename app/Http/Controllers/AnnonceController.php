@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Annonce;
+use App\Http\Requests\AnnonceRequest;
 
 class AnnonceController extends Controller
 {
@@ -32,9 +34,10 @@ class AnnonceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AnnonceRequest $annonceRequest)
     {
-        //
+        Annonce::create($annonceRequest->all());
+        return redirect()->route('annonces.index')->with('message', "L'annonce à bien été crée");
     }
 
     /**

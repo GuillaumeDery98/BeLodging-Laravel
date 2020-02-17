@@ -4,10 +4,13 @@
 h1 {
     color: #393939;
 }
-.filter {
+.formCenter {
     margin-top: 0.7rem;
     border: #bbbbbb 1px solid;
     background-color: #f5f5f5;
     border-radius: 2rem;
     padding: 1.5rem;
+}
+.ck-editor__editable {
+    min-height: 200px !important;
 }

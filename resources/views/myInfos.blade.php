@@ -2,7 +2,7 @@
 
 @section('titre', 'Mes infos')
 @section('contenu')
-<div class="filter">
+<div class="formCenter">
     <h2>Mes informations</h2>
 
 

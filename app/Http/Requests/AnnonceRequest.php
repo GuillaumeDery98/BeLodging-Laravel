@@ -13,7 +13,7 @@ class AnnonceRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,12 +24,12 @@ class AnnonceRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required | string | max:100'
-            'city' => 'required | integer | digits:4',
-            'price' => 'required | integer',
-            'duration' => 'required | integer',
-            'type' => 'required | integer',
-            'description' => 'required | string',
+            'title' => 'bail | required | string | max:100',
+            'city' => 'bail | required | integer | digits:4',
+            'price' => 'bail | required | integer',
+            'duration' => 'bail | required | integer',
+            'type' => 'bail | required | integer',
+            'description' => 'bail | required | string',
         ];
     }
 }
