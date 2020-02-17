@@ -9,7 +9,7 @@
         <a href="/myinfos"><button type="button" class="btn btn-outline-info waves-effect">Mes infos</button></a>
     </div>
     <div class="col-2 offset-8">
-        <a href="/createAnnonce"><button type="button" class="btn btn-outline-info waves-effect">Créer
+        <a href="/annonces/create"><button type="button" class="btn btn-outline-info waves-effect">Créer
                 annonce</button></a>
     </div>
 

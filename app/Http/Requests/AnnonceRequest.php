@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class FilterRequest extends FormRequest
+class AnnonceRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class FilterRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -24,11 +24,12 @@ class FilterRequest extends FormRequest
     public function rules()
     {
         return [
-            'postal' => 'required | integer | digits:4',
-            'prixmin' => 'integer',
-            'prixmax' => 'integer | gt:prixmin',
-            'duree' => 'required | integer',
+            'title' => 'required | string | max:100'
+            'city' => 'required | integer | digits:4',
+            'price' => 'required | integer',
+            'duration' => 'required | integer',
             'type' => 'required | integer',
+            'description' => 'required | string',
         ];
     }
 }

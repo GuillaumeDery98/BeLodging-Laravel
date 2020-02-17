@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\UserUpdateRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\UserMod;
 
 class UserController extends Controller
 {
@@ -15,11 +16,7 @@ class UserController extends Controller
 
     public function store(UserUpdateRequest $request)
     {
-        auth()->user()->update([
-            'email' => request('mail'),
-            'name' => request('nom')
-        ]);
-
+        UserMod::updateUser($request);
         return view('myInfos');
     }
 }

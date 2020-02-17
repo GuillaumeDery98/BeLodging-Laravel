@@ -22,7 +22,7 @@
             </div>
             <div class="form-row">
                 <div class="col-md-6 col-sm-12 mt-2">
-                    <label for="prixmin">Prix Minimum</label>
+                    <label for="prixmin">Prix Minimum Mensuel</label>
                     <input type="number" class="form-control @error('prixmin') is-invalid @enderror" id="prixmin"
                         name="prixmin" placeholder="0" value="{{ old('prixmin') }}">
                     @error('prixmin')
@@ -30,7 +30,7 @@
                     @enderror
                 </div>
                 <div class="col-md-6 col-sm-12 mt-2">
-                    <label for="prixmax">Prix Maximum</label>
+                    <label for="prixmax">Prix Maximum Mensuel</label>
                     <input type="number" class="form-control @error('prixmax') is-invalid @enderror" id="prixmax"
                         name="prixmax" placeholder="0" value="{{ old('prixmax') }}">
                     @error('prixmax')
