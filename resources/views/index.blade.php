@@ -74,12 +74,29 @@
         </div>
     </form>
 </div>
-<div class="card mt-3" style="width: 18rem;">
-    <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-        <a href="#" class="card-link">Card link</a>
+<div class="row">
+    @foreach($annonces as $annonce)
+    <div class="col-md-4 col-sm-12 mt-3">
+        <div class="card">
+            <img src="{{ URL::asset('images/not_available.jpg') }}" class="card-img-top" alt="Photo logement">
+            <div class="card-body">
+                <a href="{{ route('annonces.show', $annonce->id) }}" class="text-reset">
+                    <h5 class="card-title">{{ $annonce->title }}</h5>
+                </a>
+                <h6 class="card-subtitle mb-2 text-muted">Code postal : {{ $annonce->city }}</h6>
+                <h6 class="card-subtitle mb-2 text-muted">Prix : {{ $annonce->price }}</h6>
+                <h6 class="card-subtitle mb-2 text-muted">Type : </h6>
+                <h6 class="card-subtitle mb-2 text-muted">Durée : </h6>
+                <a href="{{ route('annonces.show', $annonce->id) }}" class="btn btn-primary">Voir</a>
+            </div>
+        </div>
+    </div>
+    @endforeach
+
+</div>
+<div class="row">
+    <div class="card-footer">
+        {{ $annonces->links() }}
     </div>
 </div>
 @endsection

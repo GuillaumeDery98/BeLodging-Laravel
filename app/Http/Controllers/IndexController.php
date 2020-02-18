@@ -13,7 +13,7 @@ class IndexController extends Controller
 {
     public function all()
     {
-        $annonces = Annonce::all();
+        $annonces = Annonce::paginate(9);
         return view('index', compact('annonces'));
     }
     public function filtered(FilterRequest $request)

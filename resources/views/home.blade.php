@@ -27,29 +27,36 @@
             <tr>
                 <th scope="col">Titre</th>
                 <th scope="col">Code postal</th>
-                <th scope="col">Status</th>
-                <th scope="col">Actions</th>
+                <th scope="col">Prix</th>
+                <th scope="col" class="pl-3">Actions</th>
             </tr>
         </thead>
         <tbody>
+            @foreach($annonces as $annonce)
             <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
+                <th scope="row">{{ $annonce->title }}</th>
+                <td>{{ $annonce->city }}</td>
+                <td>{{ $annonce->price }}</td>
+                <td>
+                    <div class="row">
+                        <span class="col-1">
+                            <a href="{{ route('annonces.show', $annonce->id) }}" class="text-reset"><i
+                                    class="far fa-eye"></i></a></span>
+                        <span class="col-1">
+                            <a href="{{ route('annonces.edit', $annonce->id) }}" class="text-reset"><i
+                                    class="fas fa-pen"></i></a></span>
+                        <span class="col-1">
+                            <form action="{{ route('annonces.destroy', $annonce->id) }}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button class="resetButton" type="submit"><i class="fas fa-trash-alt"></i></button>
+                            </form>
+                        </span>
+                    </div>
+                </td>
             </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-            </tr>
+            @endforeach
+
         </tbody>
     </table>
 </div>

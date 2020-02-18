@@ -34,7 +34,7 @@ class AnnonceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(AnnonceRequest $annonceRequest)
+    public function store(Request $annonceRequest)
     {
         Annonce::create($annonceRequest->all());
         return redirect()->route('home')->with('message', "L'annonce à bien été crée");
@@ -46,9 +46,9 @@ class AnnonceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Annonce $annonce)
     {
-        //
+        return view('showAnnonce', compact('annonce'));
     }
 
     /**
@@ -57,9 +57,9 @@ class AnnonceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Annonce $annonce)
     {
-        //
+        return view('editAnnonce', compact('annonce'));
     }
 
     /**
@@ -69,9 +69,11 @@ class AnnonceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(AnnonceRequest $annonceRequest, Annonce $annonce)
     {
-        //
+        //$annonce->update($AnnonceRequest->all());
+        $annonce->update($annonceRequest->all());
+        return redirect()->route('home')->with('message', "L'annonce a bien été modifié");
     }
 
     /**
@@ -80,8 +82,9 @@ class AnnonceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Annonce $annonce)
     {
-        //
+        $annonce->delete();
+        return redirect()->route('home')->with('message', "L'annonce a bien été supprimée.");
     }
 }
