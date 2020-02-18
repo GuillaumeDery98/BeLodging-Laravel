@@ -17,6 +17,6 @@ class UserController extends Controller
     public function store(UserUpdateRequest $request)
     {
         UserMod::updateUser($request);
-        return view('myInfos');
+        return redirect()->route('home')->with('message', "Vos informations ont bien étées mise à jour");
     }
 }

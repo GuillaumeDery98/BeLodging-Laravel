@@ -19,7 +19,7 @@ class CreateAnnoncesTable extends Migration
             $table->integer('city');
             $table->integer('type');
             $table->integer('duration');
-            $table->integer('description');
+            $table->string('description');
             $table->integer('price');
             $table->timestamps();
         });

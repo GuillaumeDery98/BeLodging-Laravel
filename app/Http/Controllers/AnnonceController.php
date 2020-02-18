@@ -37,7 +37,7 @@ class AnnonceController extends Controller
     public function store(AnnonceRequest $annonceRequest)
     {
         Annonce::create($annonceRequest->all());
-        return redirect()->route('annonces.index')->with('message', "L'annonce à bien été crée");
+        return redirect()->route('home')->with('message', "L'annonce à bien été crée");
     }
 
     /**

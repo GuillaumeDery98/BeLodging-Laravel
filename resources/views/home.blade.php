@@ -4,7 +4,11 @@
 
 @section('contenu')
 
-{{ $message ?? '' }}
+@if(session()->has('message'))
+<div class="alert alert-success mt-2" role="alert">
+    {{ session('message') }}
+</div>
+@endif
 
 <div class="row mt-1">
     <div class="col-2">
