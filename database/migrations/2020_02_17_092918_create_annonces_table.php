@@ -13,15 +13,26 @@ class CreateAnnoncesTable extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::create('annonces', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
             $table->integer('city');
-            $table->integer('type');
-            $table->integer('duration');
             $table->string('description');
             $table->integer('price');
             $table->timestamps();
+            $table->unsignedBigInteger('category_id');
+            $table->foreign('category_id')
+                ->references('id')
+                ->on('categories')
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
+            $table->unsignedBigInteger('duration_id');
+            $table->foreign('duration_id')
+                ->references('id')
+                ->on('durations')
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
         });
     }
 

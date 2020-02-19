@@ -17,8 +17,8 @@
             <div class="form-row">
                 <div class="col-md-12">
                     <label for="title">Titre</label>
-                    <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title"
-                        value="{{ old('title') ?? $annonce->title }}">
+                    <input category_id="text" class="form-control @error('title') is-invalid @enderror" id="title"
+                        name="title" value="{{ old('title') ?? $annonce->title }}">
                     @error('title')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -27,15 +27,15 @@
             <div class="form-row">
                 <div class="col-md-6 col-sm-12 mt-2">
                     <label for="city">Code Postal</label>
-                    <input type="number" class="form-control @error('city') is-invalid @enderror" id="city" name="city"
-                        placeholder="0" value="{{ old('city') ?? $annonce->city }}">
+                    <input category_id="number" class="form-control @error('city') is-invalid @enderror" id="city"
+                        name="city" placeholder="0" value="{{ old('city') ?? $annonce->city }}">
                     @error('city')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="col-md-6 col-sm-12 mt-2">
                     <label for="price">Prix Mensuel</label>
-                    <input type="number" class="form-control @error('price') is-invalid @enderror" id="price"
+                    <input category_id="number" class="form-control @error('price') is-invalid @enderror" id="price"
                         name="price" placeholder="0" value="{{ old('price') ?? $annonce->price }}">
                     @error('price')
                     <div class="invalid-feedback">{{ $message }}</div>
@@ -45,49 +45,53 @@
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6 col-sm-12 mt-2">
-                    <label for="duration">Durée</label>
+                    <label for="duration_id">Durée</label>
                     @php
-                    $duration = old('duration')
+                    $duration_id = old('duration_id')
                     @endphp
-                    <select class="custom-select @error('duration') is-invalid @enderror" name="duration">
+                    <select class="custom-select @error('duration_id') is-invalid @enderror" name="duration_id">
                         <option value="">Choisissez une option</option>
-                        @isset($duration)
-                        <option value="1" {{ old('duration') == 1 ? 'selected' : ''}}>Longue durée</option>
-                        <option value="2" {{ old('duration') == 2 ? 'selected' : ''}}>Courte durée</option>
+                        @isset($duration_id)
+                        @foreach($durations as $duration)
+                        <option value="{{ $duration->id }}" {{ old('duration_id') == $duration->id ? 'selected' : ''}}>
+                            {{ $duration->name }}</option>
+                        @endforeach
                         @else
-                        <option value="1" {{ $annonce->duration == 1 ? 'selected' : ''}}>Longue durée</option>
-                        <option value="2" {{ $annonce->duration == 2 ? 'selected' : ''}}>Courte durée</option>
+                        @foreach($durations as $duration)
+                        <option value="{{ $duration->id }}"
+                            {{ $annonce->duration_id == $duration->id ? 'selected' : ''}}>
+                            {{ $duration->name }}</option>
+                        @endforeach
                         @endisset
                     </select>
-                    @error('duration')
+                    @error('duration_id')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group col-md-6 col-sm-12 mt-2">
-                    <label for="type">Type de logement</label>
+                    <label for="category_id">Type de logement</label>
                     @php
-                    $type = old('type')
+                    $category_id = old('category_id')
                     @endphp
 
-                    <select class="custom-select @error('type') is-invalid @enderror" name="type">
+                    <select class="custom-select @error('category_id') is-invalid @enderror" name="category_id">
                         <option value="">Choisissez une option</option>
 
-                        @isset($type)
-                        <option value="1" {{ old('type') == 1 ? 'selected' : ''}}>Maison</option>
-                        <option value="2" {{ old('type') == 2 ? 'selected' : ''}}>Appartement</option>
-                        <option value="3" {{ old('type') == 3 ? 'selected' : ''}}>Kot</option>
-                        <option value="4" {{ old('type') == 4 ? 'selected' : ''}}>Gîte</option>
-                        <option value="5" {{ old('type') == 5 ? 'selected' : ''}}>Hôtel</option>
+                        @isset($category_id)
+                        @foreach($categories as $category)
+                        <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : ''}}>
+                            {{ $category->name }}</option>
+                        @endforeach
                         @else
-                        <option value="1" {{ $annonce->type == 1 ? 'selected' : ''}}>Maison</option>
-                        <option value="2" {{ $annonce->type == 2 ? 'selected' : ''}}>Appartement</option>
-                        <option value="3" {{ $annonce->type == 3 ? 'selected' : ''}}>Kot</option>
-                        <option value="4" {{ $annonce->type == 4 ? 'selected' : ''}}>Gîte</option>
-                        <option value="5" {{ $annonce->type == 5 ? 'selected' : ''}}>Hôtel</option>
+                        @foreach($categories as $category)
+                        <option value="{{ $category->id }}"
+                            {{ $annonce->category_id == $category->id ? 'selected' : ''}}>
+                            {{ $category->name }}</option>
+                        @endforeach
                         @endisset
 
                     </select>
-                    @error('type')
+                    @error('category_id')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
@@ -113,7 +117,7 @@
                 </div>
             </div>
             <div class="text-center">
-                <button class="btn btn-primary" type="submit">MODIFIER</button>
+                <button class="btn btn-primary" category_id="submit">MODIFIER</button>
             </div>
         </div>
     </form>

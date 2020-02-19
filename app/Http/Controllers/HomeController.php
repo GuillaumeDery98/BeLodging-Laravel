@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $annonces = Annonce::all();
+        $annonces = Annonce::orderBy('created_at', 'desc')->get();
         return view('home', compact('annonces'));
     }
 }

@@ -44,8 +44,10 @@
                     <select class="custom-select @error('duree') is-invalid @enderror" name="duree">
                         <option value="">Choisissez une option</option>
 
-                        <option value="1" {{ old('duree') == 1 ? 'selected' : ''}}>Longue durée</option>
-                        <option value="2" {{ old('duree') == 2 ? 'selected' : ''}}>Courte durée</option>
+                        @foreach($durations as $duration)
+                        <option value="{{ $duration->id }}" {{ old('duree') == $duration->id ? 'selected' : ''}}>
+                            {{ $duration->name }}</option>
+                        @endforeach
                     </select>
                     @error('duree')
                     <div class="invalid-feedback">{{ $message }}</div>
@@ -55,11 +57,10 @@
                     <label for="type">Type de logement</label>
                     <select class="custom-select @error('type') is-invalid @enderror" name="type">
                         <option value="">Choisissez une option</option>
-                        <option value="1" {{ old('type') == 1 ? 'selected' : ''}}>Maison</option>
-                        <option value="2" {{ old('type') == 2 ? 'selected' : ''}}>Appartement</option>
-                        <option value="3" {{ old('type') == 3 ? 'selected' : ''}}>Kot</option>
-                        <option value="4" {{ old('type') == 4 ? 'selected' : ''}}>Gîte</option>
-                        <option value="5" {{ old('type') == 5 ? 'selected' : ''}}>Hôtel</option>
+                        @foreach($categories as $category)
+                        <option value="{{ $category->id }}" {{ old('type') == $category->id ? 'selected' : ''}}>
+                            {{ $category->name }}</option>
+                        @endforeach
                     </select>
                     @error('type')
                     <div class="invalid-feedback">{{ $message }}</div>
@@ -85,8 +86,20 @@
                 </a>
                 <h6 class="card-subtitle mb-2 text-muted">Code postal : {{ $annonce->city }}</h6>
                 <h6 class="card-subtitle mb-2 text-muted">Prix : {{ $annonce->price }}</h6>
-                <h6 class="card-subtitle mb-2 text-muted">Type : </h6>
-                <h6 class="card-subtitle mb-2 text-muted">Durée : </h6>
+                <h6 class="card-subtitle mb-2 text-muted">Type :
+                    @foreach($categories as $category)
+                    @if($category->id == $annonce->category_id)
+                    {{ $category->name }}
+                    @endif
+                    @endforeach
+                </h6>
+                <h6 class="card-subtitle mb-2 text-muted">Durée :
+                    @foreach($durations as $duration)
+                    @if($duration->id == $annonce->duration_id)
+                    {{ $duration->name }}
+                    @endif
+                    @endforeach
+                </h6>
                 <a href="{{ route('annonces.show', $annonce->id) }}" class="btn btn-primary">Voir</a>
             </div>
         </div>

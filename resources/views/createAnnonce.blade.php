@@ -16,8 +16,8 @@
             <div class="form-row">
                 <div class="col-md-12">
                     <label for="title">Titre</label>
-                    <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title"
-                        value="{{ old('title') }}">
+                    <input category_id="text" class="form-control @error('title') is-invalid @enderror" id="title"
+                        name="title" value="{{ old('title') }}">
                     @error('title')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -26,15 +26,15 @@
             <div class="form-row">
                 <div class="col-md-6 col-sm-12 mt-2">
                     <label for="city">Code Postal</label>
-                    <input type="number" class="form-control @error('city') is-invalid @enderror" id="city" name="city"
-                        placeholder="0" value="{{ old('city') }}">
+                    <input category_id="number" class="form-control @error('city') is-invalid @enderror" id="city"
+                        name="city" placeholder="0" value="{{ old('city') }}">
                     @error('city')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="col-md-6 col-sm-12 mt-2">
                     <label for="price">Prix Mensuel</label>
-                    <input type="number" class="form-control @error('price') is-invalid @enderror" id="price"
+                    <input category_id="number" class="form-control @error('price') is-invalid @enderror" id="price"
                         name="price" placeholder="0" value="{{ old('price') }}">
                     @error('price')
                     <div class="invalid-feedback">{{ $message }}</div>
@@ -44,28 +44,29 @@
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6 col-sm-12 mt-2">
-                    <label for="duration">Durée</label>
-                    <select class="custom-select @error('duration') is-invalid @enderror" name="duration">
+                    <label for="duration_id">Durée</label>
+                    <select class="custom-select @error('duration_id') is-invalid @enderror" name="duration_id">
                         <option value="">Choisissez une option</option>
 
-                        <option value="1" {{ old('duration') == 1 ? 'selected' : ''}}>Longue durée</option>
-                        <option value="2" {{ old('duration') == 2 ? 'selected' : ''}}>Courte durée</option>
+                        @foreach($durations as $duration)
+                        <option value="{{ $duration->id }}" {{ old('duration_id') == $duration->id ? 'selected' : ''}}>
+                            {{ $duration->name }}</option>
+                        @endforeach
                     </select>
-                    @error('duration')
+                    @error('duration_id')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="form-group col-md-6 col-sm-12 mt-2">
-                    <label for="type">Type de logement</label>
-                    <select class="custom-select @error('type') is-invalid @enderror" name="type">
+                    <label for="category_id">Type de logement</label>
+                    <select class="custom-select @error('category_id') is-invalid @enderror" name="category_id">
                         <option value="">Choisissez une option</option>
-                        <option value="1" {{ old('type') == 1 ? 'selected' : ''}}>Maison</option>
-                        <option value="2" {{ old('type') == 2 ? 'selected' : ''}}>Appartement</option>
-                        <option value="3" {{ old('type') == 3 ? 'selected' : ''}}>Kot</option>
-                        <option value="4" {{ old('type') == 4 ? 'selected' : ''}}>Gîte</option>
-                        <option value="5" {{ old('type') == 5 ? 'selected' : ''}}>Hôtel</option>
+                        @foreach($categories as $category)
+                        <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : ''}}>
+                            {{ $category->name }}</option>
+                        @endforeach
                     </select>
-                    @error('type')
+                    @error('category_id')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
@@ -90,7 +91,7 @@
                 </div>
             </div>
             <div class="text-center">
-                <button class="btn btn-primary" type="submit">CRÉER</button>
+                <button class="btn btn-primary" category_id="submit">CRÉER</button>
             </div>
         </div>
     </form>

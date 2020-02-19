@@ -27,8 +27,8 @@ class AnnonceRequest extends FormRequest
             'title' => 'bail | required | string | max:100',
             'city' => 'bail | required | integer | digits:4',
             'price' => 'bail | required | integer',
-            'duration' => 'bail | required | integer',
-            'type' => 'bail | required | integer',
+            'duration_id' => 'bail | required | integer',
+            'category_id' => 'bail | required | integer',
             'description' => 'bail | required | string',
         ];
     }

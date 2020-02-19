@@ -20,10 +20,10 @@
                 <h4>Prix mensuel : {{ $annonce->price }}€</h4>
             </li>
             <li>
-                <h4>Type : </h4>
+                <h4>Type : {{ $category }}</h4>
             </li>
             <li>
-                <h4>Durée : </h4>
+                <h4>Durée : {{ $duration }}</h4>
             </li>
         </ul>
     </div>
