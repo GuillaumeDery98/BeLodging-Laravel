@@ -5,8 +5,6 @@
 @section('contenu')
 <div class="formCenter">
     <h2>Filtres</h2>
-
-
     <form action="/" method="POST">
         @csrf
         <div class="md-form">

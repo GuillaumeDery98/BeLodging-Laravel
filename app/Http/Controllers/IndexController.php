@@ -20,8 +20,14 @@ class IndexController extends Controller
     }
     public function filtered(FilterRequest $request)
     {
+
         $filter = $request->all();
-        $annonces = Annonce::paginate(9)->where('city', '=', $request->postal());
+        $annonces = Annonce::where('city', '=', $request->postal)
+            ->where('price', ">=", $request->prixmin)
+            ->where('price', "<=", $request->prixmax)
+            ->where('duration_id', ">=", $request->duree)
+            ->where('category_id', ">=", $request->type)
+            ->paginate(9);
         $categories = Category::all();
         $durations = Duration::all();
         session(['_old_input' => $request->input()]);
