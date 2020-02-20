@@ -68,7 +68,7 @@
 
             </div>
             <div class="text-center">
-                <button class="btn btn-primary" type="submit">RECHERCHER</button>
+                <button class="btn btn-primary" type="submit">FILTRER</button>
             </div>
         </div>
     </form>
