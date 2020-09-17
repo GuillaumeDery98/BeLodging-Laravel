@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
+use App\Models\Annonce;
+use App\Models\Category;
+use App\Models\Duration;
 use App\Http\Requests\AnnonceRequest;
-use App\{Annonce, Category, Duration};
+use Illuminate\Http\Request;
 
 class AnnonceController extends Controller
 {
@@ -28,6 +29,7 @@ class AnnonceController extends Controller
     {
         $categories = Category::all();
         $durations = Duration::all();
+
         return view('createAnnonce', compact('categories', 'durations'));
     }
 
@@ -40,6 +42,7 @@ class AnnonceController extends Controller
     public function store(AnnonceRequest $annonceRequest)
     {
         Annonce::create($annonceRequest->all());
+
         return redirect()->route('home')->with('message', "L'annonce à bien été crée");
     }
 
@@ -53,6 +56,7 @@ class AnnonceController extends Controller
     {
         $category = $annonce->category->name;
         $duration = $annonce->duration->name;
+
         return view('showAnnonce', compact('annonce', 'category', 'duration'));
     }
 
@@ -66,6 +70,7 @@ class AnnonceController extends Controller
     {
         $categories = Category::all();
         $durations = Duration::all();
+
         return view('editAnnonce', compact('annonce', 'durations', 'categories'));
     }
 
@@ -80,6 +85,7 @@ class AnnonceController extends Controller
     {
         //$annonce->update($AnnonceRequest->all());
         $annonce->update($annonceRequest->all());
+
         return redirect()->route('home')->with('message', "L'annonce a bien été modifié");
     }
 
@@ -92,6 +98,7 @@ class AnnonceController extends Controller
     public function destroy(Annonce $annonce)
     {
         $annonce->delete();
+
         return redirect()->route('home')->with('message', "L'annonce a bien été supprimée.");
     }
 }

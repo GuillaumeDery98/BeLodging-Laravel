@@ -19,7 +19,6 @@ Route::post('/', 'IndexController@filtered');
 //Annonces
 Route::resource('annonces', 'AnnonceController')->middleware('verified');
 
-
 //Auth
 
 Auth::routes(['verify' => true]);

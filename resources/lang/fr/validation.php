@@ -134,8 +134,8 @@ return [
         ],
         'postal' => [
             'integer' => "Ce n'est pas un code postal.",
-            'size' => "La valeur du code postal doit être composée de 4 caractères."
-        ]
+            'size' => 'La valeur du code postal doit être composée de 4 caractères.',
+        ],
     ],
 
     /*
