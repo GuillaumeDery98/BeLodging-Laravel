@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Annonce;
-use App\Category;
-use App\Duration;
+use App\Models\Annonce;
+use App\Models\Category;
+use App\Models\Duration;
 use App\Http\Requests\AnnonceRequest;
 use Illuminate\Http\Request;
 

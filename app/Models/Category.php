@@ -1,10 +1,10 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Duration extends Model
+class Category extends Model
 {
     public function annonces()
     {

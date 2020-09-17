@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UserUpdateRequest;
-use App\UserMod;
+use App\Models\UserMod;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
