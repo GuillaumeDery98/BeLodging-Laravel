@@ -25,7 +25,7 @@ class UserUpdateRequest extends FormRequest
     {
         return [
             'nom' => 'bail | string | max:20 | required',
-            'mail' => 'bail | email | required'
+            'mail' => 'bail | email | required',
         ];
     }
 }

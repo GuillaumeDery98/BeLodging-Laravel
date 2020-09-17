@@ -10,7 +10,7 @@ class UserMod extends Model
     {
         auth()->user()->update([
             'email' => request('mail'),
-            'name' => request('nom')
+            'name' => request('nom'),
         ]);
     }
 }
